@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private InputAction moveAction, jumpAction;
 
+    private bool isGrounded = false;
+
     private void Awake()
     {
         moveAction = InputSystem.actions.FindAction("Move");
@@ -38,6 +40,25 @@ public class PlayerController : MonoBehaviour
 
     void Jump(InputAction.CallbackContext context)
     {
-        jumpRequested = true;
+        if (isGrounded)
+        {
+            jumpRequested = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }
