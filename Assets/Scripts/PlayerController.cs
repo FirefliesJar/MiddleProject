@@ -3,42 +3,44 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 5f, jumpForce = 5f;
+    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float jumpForce = 5f;
 
     [SerializeField] private Rigidbody2D rb;
+
     private Vector2 moveVector;
     private bool jumpRequested = false;
-
-    private InputAction moveAction, jumpAction;
-
     private bool isGrounded = false;
+
+    private InputAction moveAction;
+    private InputAction jumpAction;
 
     private void Awake()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
 
-        jumpAction.performed += Jump;  //+= means subscribing to an event - when it's called through the input system it calles the Jump function
+        jumpAction.performed += Jump;
     }
 
-    void Update()
+    private void Update()
     {
         moveVector = moveAction.ReadValue<Vector2>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         rb.linearVelocityX = moveVector.x * movementSpeed;
 
         if (jumpRequested)
         {
-            //later we can add here jump sound
             rb.linearVelocityY = jumpForce;
             jumpRequested = false;
+            isGrounded = false;
         }
     }
 
-    void Jump(InputAction.CallbackContext context)
+    private void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded)
         {
