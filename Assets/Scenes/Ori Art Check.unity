@@ -1797,7 +1797,6 @@ GameObject:
   - component: {fileID: 1758228277}
   - component: {fileID: 1758228276}
   - component: {fileID: 1758228275}
-  - component: {fileID: 1758228274}
   - component: {fileID: 1758228273}
   m_Layer: 0
   m_Name: Sofa plat
@@ -1827,25 +1826,6 @@ SpringJoint2D:
   m_Distance: 0.005
   m_DampingRatio: 0.5
   m_Frequency: 7
---- !u!255 &1758228274
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758228272}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.11, y: -0.2}
-  m_ConnectedAnchor: {x: -3.5490754, y: -2.9041195}
-  m_DampingRatio: 0
-  m_Frequency: 1
 --- !u!50 &1758228275
 Rigidbody2D:
   serializedVersion: 5
