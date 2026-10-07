@@ -3,44 +3,52 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float movementSpeed = 5f, jumpForce = 5f;
 
     [SerializeField] private Rigidbody2D rb;
-
+    [SerializeField] private GameObject visuals;
     private Vector2 moveVector;
     private bool jumpRequested = false;
-    private bool isGrounded = false;
 
-    private InputAction moveAction;
-    private InputAction jumpAction;
+    private InputAction moveAction, jumpAction;
+
+    private bool isGrounded = false;
 
     private void Awake()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
 
-        jumpAction.performed += Jump;
+        jumpAction.performed += Jump;   //+= means subscribing to an event - when it's called through the input system it calles the Jump function
     }
 
-    private void Update()
+    void Update()
     {
         moveVector = moveAction.ReadValue<Vector2>();
+        
+        if (moveVector.x > 0)   //change visuals direction based on movement direction
+        {
+            visuals.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (moveVector.x < 0)
+        {
+            visuals.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         rb.linearVelocityX = moveVector.x * movementSpeed;
 
         if (jumpRequested)
         {
+            //later we can add here jump sound
             rb.linearVelocityY = jumpForce;
             jumpRequested = false;
-            isGrounded = false;
         }
     }
 
-    private void Jump(InputAction.CallbackContext context)
+    void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded)
         {
