@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeed = 5f, jumpForce = 5f;
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject visuals;
     private Vector2 moveVector;
     private bool jumpRequested = false;
 
@@ -18,12 +19,21 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
 
-        jumpAction.performed += Jump;  //+= means subscribing to an event - when it's called through the input system it calles the Jump function
+        jumpAction.performed += Jump;   //+= means subscribing to an event - when it's called through the input system it calles the Jump function
     }
 
     void Update()
     {
         moveVector = moveAction.ReadValue<Vector2>();
+        
+        if (moveVector.x > 0)   //change visuals direction based on movement direction
+        {
+            visuals.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (moveVector.x < 0)
+        {
+            visuals.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     void FixedUpdate()
