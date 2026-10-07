@@ -1121,6 +1121,7 @@ MonoBehaviour:
   movementSpeed: 5
   jumpForce: 7
   rb: {fileID: 519373993}
+  visuals: {fileID: 519373991}
 --- !u!114 &519374001
 MonoBehaviour:
   m_ObjectHideFlags: 0
