@@ -119,16 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &84412494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7634311076255468094, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-  m_PrefabInstance: {fileID: 483849604445080297}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &349268988 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6175081379381320797, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-  m_PrefabInstance: {fileID: 483849604445080297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &394965105
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,11 +698,6 @@ Transform:
   - {fileID: 725895439}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1254281813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1384875292756833698, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-  m_PrefabInstance: {fileID: 483849604445080297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1414101272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,28 +1160,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2561834872043294932, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-      propertyPath: characterOptions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2561834872043294932, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-      propertyPath: 'characterOptions.Array.data[0]'
-      value: 
-      objectReference: {fileID: 84412494}
-    - target: {fileID: 2561834872043294932, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-      propertyPath: 'characterOptions.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1254281813}
-    - target: {fileID: 2561834872043294932, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-      propertyPath: 'characterOptions.Array.data[2]'
-      value: 
-      objectReference: {fileID: 349268988}
     - target: {fileID: 5036047335388384850, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5036047335388384850, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
