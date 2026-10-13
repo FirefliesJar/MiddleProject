@@ -765,6 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   windForce: 200
   windDirection: {x: -1, y: 0}
+  characterSwitch: {fileID: 667784276}
 --- !u!61 &167733808
 BoxCollider2D:
   m_ObjectHideFlags: 0

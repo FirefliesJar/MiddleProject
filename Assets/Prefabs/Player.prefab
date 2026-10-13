@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 2356003838744665407}
   - component: {fileID: 2561834872043294932}
   - component: {fileID: 5030548008840579490}
+  - component: {fileID: 4345806856707051434}
   - component: {fileID: 5786306202427213151}
   - component: {fileID: 5120035860424133757}
   - component: {fileID: 2626955371401895623}
@@ -178,6 +179,7 @@ MonoBehaviour:
   - {fileID: 5018907055058347813}
   - {fileID: 7870880401341056592}
   - {fileID: 6093296600295313694}
+  currentCharacterIndex: 0
 --- !u!114 &5030548008840579490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +196,20 @@ MonoBehaviour:
   jumpForce: 16
   rb: {fileID: 5786306202427213151}
   visuals: {fileID: 1786364021798767933}
+--- !u!114 &4345806856707051434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036047335388384850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d0017c12a7646bdabdc7951a0054b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CandyCollection
+  characterSwitch: {fileID: 2561834872043294932}
+  candyText: {fileID: 0}
 --- !u!50 &5786306202427213151
 Rigidbody2D:
   serializedVersion: 5
