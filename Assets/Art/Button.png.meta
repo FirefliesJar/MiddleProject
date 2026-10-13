@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 36ed752348e854e6b9a5c61f4b2f3bc5
+guid: 790f01cc70a0146c29da6ed83966398d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5060641882456865962
-    second: Particles 1_0
+      213: 649223268058989734
+    second: Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 324
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Particles 1_0
+      name: Button_0
       rect:
         serializedVersion: 2
-        x: 105
-        y: 31
-        width: 290
-        height: 438
+        x: 0
+        y: 0
+        width: 666
+        height: 298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 653c1b4350df4c9b0800000000000000
-      internalID: -5060641882456865962
+      spriteID: 6a403906f11820900800000000000000
+      internalID: 649223268058989734
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Particles 1_0: -5060641882456865962
+      Button_0: 649223268058989734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
