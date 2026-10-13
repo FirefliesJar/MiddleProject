@@ -3,31 +3,34 @@ using TMPro;
 
 public class CandyCollection : MonoBehaviour
 {
-    private int Candy = 0;
+    [SerializeField] private CharacterSwitch characterSwitch;
+    
+    private int candy = 0;
 
     public TextMeshProUGUI candyText;
 
     private void Start()
     {
-        candyText.text = Candy.ToString() + "/3";
+        candyText.text = candy.ToString() + "/3";
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("PickUp"))
+        if (!other.CompareTag("PickUp") || characterSwitch.currentCharacterIndex != 2)
         {
-            Candy++;
+            return;
+        }
+            candy++;
+            candyText.text = candy.ToString() + "/3";
 
-            candyText.text = Candy.ToString() + "/3";
-
-            Debug.Log("Candy! Total: " + Candy);
+            Debug.Log("Candy! Total: " + candy);
 
             Destroy(other.gameObject);
 
-            if (Candy == 3)
+            if (candy == 3)
             {
                 Debug.Log("You Win!");
             }
-        }
+        
     }
 }
