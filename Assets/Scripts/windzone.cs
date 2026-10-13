@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class WindZone : MonoBehaviour
 {
+    [SerializeField] private CharacterSwitch characterSwitch; 
+
     public float windForce = 10f;
     public Vector2 windDirection = Vector2.right;
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && characterSwitch.currentCharacterIndex != 0)
         {
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
 
