@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
+    [SerializeField] private CharacterSwitch characterSwitch; 
+    
     public float shakeTime = 0.5f;
     public float fallTime = 0.7f;
     public float respawnWait = 3f;
@@ -29,9 +31,9 @@ public class FallingPlatform : MonoBehaviour
         startRotation = transform.rotation;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!isFalling && collision.gameObject.CompareTag("Player"))
+        if (!isFalling && collision.gameObject.CompareTag("Player") && characterSwitch.currentCharacterIndex != 1)
         {
             // Only activate when player lands on top
             if (collision.contacts[0].normal.y < -0.5f)

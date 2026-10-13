@@ -478,6 +478,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661030961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2561834872043294932, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
+  m_PrefabInstance: {fileID: 483849604445080297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a91f86dc4a1849c6b2158817e25012b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSwitch
 --- !u!1 &725895438
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0672b68e386a044aaa5128bd01de9b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  characterSwitch: {fileID: 661030961}
   shakeTime: 0.5
   fallTime: 0.7
   respawnWait: 3

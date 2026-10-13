@@ -763,9 +763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23976d33860894ed2a77ebe22fa0f1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  characterSwitch: {fileID: 667784276}
   windForce: 200
   windDirection: {x: -1, y: 0}
-  characterSwitch: {fileID: 667784276}
 --- !u!61 &167733808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2641,6 +2641,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4345806856707051434, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
+      propertyPath: candyText
+      value: 
+      objectReference: {fileID: 385981661}
     - target: {fileID: 5036047335388384850, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2648,41 +2652,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5036047335388384850, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 667784278}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
---- !u!1 &667784271 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5036047335388384850, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
-  m_PrefabInstance: {fileID: 667784270}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &667784276 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2561834872043294932, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
   m_PrefabInstance: {fileID: 667784270}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667784271}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a91f86dc4a1849c6b2158817e25012b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSwitch
---- !u!114 &667784278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667784271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d0017c12a7646bdabdc7951a0054b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CandyCollection
-  characterSwitch: {fileID: 667784276}
-  candyText: {fileID: 385981661}
 --- !u!1 &690827091
 GameObject:
   m_ObjectHideFlags: 0
