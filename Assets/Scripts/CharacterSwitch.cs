@@ -22,7 +22,10 @@ public class CharacterSwitch : MonoBehaviour
         {
             character.SetActive(false);
         }
-        characterOptions[currentCharacterIndex].SetActive(true); 
+        characterOptions[currentCharacterIndex].SetActive(true);
+
+        // שינוי 2: מעדכנים את הספות מיד כשהמשחק מתחיל
+        UpdateGhostPlatforms();
     }
 
     private void SwitchCharacter(InputAction.CallbackContext context)
@@ -35,5 +38,28 @@ public class CharacterSwitch : MonoBehaviour
             switchEffect.Play();
         }
         Debug.Log("Switched to character: " + characterOptions[currentCharacterIndex].name);
+
+        // שינוי 3: מעדכנים את הספות בכל פעם שהדמות מתחלפת
+        UpdateGhostPlatforms();
+    }
+
+    // שינוי 1: הפונקציה שמטפלת בהדלקה וכיבוי של ההתנגשות
+    private void UpdateGhostPlatforms()
+    {
+        // בודקים אם הדמות הנוכחית היא הרוח (אינדקס 1)
+        bool isGhost = (currentCharacterIndex == 1);
+
+        // מוצאים את כל הספות לפי התגית
+        GameObject[] sofas = GameObject.FindGameObjectsWithTag("GhostPlatform");
+
+        foreach (GameObject sofa in sofas)
+        {
+            Collider2D col = sofa.GetComponent<Collider2D>();
+            if (col != null)
+            {
+                // מדליקים את הקוליידר רק אם השחקן הוא רוח
+                col.enabled = isGhost;
+            }
+        }
     }
 }
