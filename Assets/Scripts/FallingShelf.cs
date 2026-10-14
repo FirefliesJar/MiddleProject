@@ -46,6 +46,7 @@ public class FallingPlatform : MonoBehaviour
     private IEnumerator FallAndRespawn()
     {
         isFalling = true;
+        this.tag = "Untagged"; // Prevents further collisions while falling
 
         // SHAKE
         float timer = 0f;
@@ -94,5 +95,6 @@ public class FallingPlatform : MonoBehaviour
         platformCollider.enabled = true;
 
         isFalling = false;
+        this.tag = "Ground"; // Reset tag to allow collisions again
     }
 }
