@@ -60,7 +60,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            Vector2 contactNormal = collision.contacts[0].normal;
+            if (contactNormal.y > 0.5f)
+            {
+                isGrounded = true;
+            }
         }
     }
 
