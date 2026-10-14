@@ -3,14 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class ButtonsMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject BlackScreen;
-
+    [SerializeField] private SceneFade sceneFade;
+    
     public void NextScene()
     {
         Time.timeScale = 1f;
 
-        int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
-        SceneManager.LoadScene(nextSceneIndex);
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+        int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % sceneCount;
+
+        sceneFade.LoadFadedScene(nextSceneIndex);
     }
 
     public void QuitGame()
