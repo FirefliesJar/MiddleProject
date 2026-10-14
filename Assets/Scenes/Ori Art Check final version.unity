@@ -224,6 +224,8 @@ GameObject:
   - component: {fileID: 76488917}
   - component: {fileID: 76488918}
   - component: {fileID: 76488919}
+  - component: {fileID: 76488920}
+  - component: {fileID: 76488921}
   m_Layer: 0
   m_Name: ghostplat_0
   m_TagString: Ground
@@ -351,6 +353,51 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.993827, y: 0.3918231}
   m_EdgeRadius: 0
+--- !u!114 &76488920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76488916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0672b68e386a044aaa5128bd01de9b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingPlatform
+  characterSwitch: {fileID: 1328564006}
+  shakeTime: 0.5
+  fallTime: 0.7
+  respawnWait: 2.5
+  shakeAmount: 0.05
+  shakeSpeed: 30
+--- !u!50 &76488921
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76488916}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &99565094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,9 +2641,9 @@ GameObject:
   - component: {fileID: 856441256}
   - component: {fileID: 856441255}
   - component: {fileID: 856441254}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sofa plat (2)
-  m_TagString: GhostPlatform
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2659,7 +2706,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856441252}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2685,7 +2732,7 @@ PlatformEffector2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856441252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
@@ -2728,10 +2775,10 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.103251874, y: -0.4351161}
+  m_Offset: {x: -0.029999971, y: -0.49213332}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2741,7 +2788,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2284955, y: 0.02930525}
+  m_Size: {x: 1.9780674, y: 0.19551691}
   m_EdgeRadius: 0.13
 --- !u!212 &856441259
 SpriteRenderer:
@@ -8654,6 +8701,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.006173, y: 0.4200945}
   m_EdgeRadius: 0
+--- !u!114 &1328564006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2561834872043294932, guid: 68b2e2cd9329844f99c195b7bc32a84d, type: 3}
+  m_PrefabInstance: {fileID: 2093403636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a91f86dc4a1849c6b2158817e25012b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSwitch
 --- !u!1 &1332904961
 GameObject:
   m_ObjectHideFlags: 0
@@ -14393,9 +14451,9 @@ GameObject:
   - component: {fileID: 1626209947}
   - component: {fileID: 1626209946}
   - component: {fileID: 1626209952}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sofa plat (1)
-  m_TagString: GhostPlatform
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14429,7 +14487,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626209945}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -14455,7 +14513,7 @@ PlatformEffector2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626209945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
@@ -14498,10 +14556,10 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.103251874, y: -0.4351161}
+  m_Offset: {x: 0.09671438, y: -0.4954961}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14511,7 +14569,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2284955, y: 0.02930525}
+  m_Size: {x: 1.9877491, y: 0.15006518}
   m_EdgeRadius: 0.13
 --- !u!212 &1626209950
 SpriteRenderer:
@@ -14785,6 +14843,8 @@ GameObject:
   - component: {fileID: 1712359430}
   - component: {fileID: 1712359431}
   - component: {fileID: 1712359432}
+  - component: {fileID: 1712359434}
+  - component: {fileID: 1712359433}
   m_Layer: 0
   m_Name: ghostplat_0 (1)
   m_TagString: Ground
@@ -14912,6 +14972,51 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.993827, y: 0.35936743}
   m_EdgeRadius: 0
+--- !u!114 &1712359433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712359429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0672b68e386a044aaa5128bd01de9b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingPlatform
+  characterSwitch: {fileID: 1328564006}
+  shakeTime: 0.5
+  fallTime: 0.7
+  respawnWait: 3
+  shakeAmount: 0.05
+  shakeSpeed: 30
+--- !u!50 &1712359434
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712359429}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1715266855
 GameObject:
   m_ObjectHideFlags: 0

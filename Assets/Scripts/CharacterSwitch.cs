@@ -5,15 +5,26 @@ using System.Collections.Generic;
 public class CharacterSwitch : MonoBehaviour
 {
     private InputAction switchAction;
-    [SerializeField] private List<GameObject> characterOptions = new List<GameObject>(); // List of characters to switch between
-    public int currentCharacterIndex = 0; // 0 = Doggo, 1 = Ghost, 2 = Pumpkin
 
-    [SerializeField] private ParticleSystem switchEffect; // Particle effect to play when switching characters
+    [SerializeField]
+    private List<GameObject> characterOptions = new List<GameObject>();
+
+    // 0 = Doggo, 1 = Ghost, 2 = Pumpkin
+    public int currentCharacterIndex = 0;
+
+    [SerializeField]
+    private ParticleSystem switchEffect;
+
+    private int playerLayer;
+    private int ghostPlatformLayer;
 
     private void Awake()
     {
         switchAction = InputSystem.actions.FindAction("SwitchCharacter");
         switchAction.performed += SwitchCharacter;
+
+        playerLayer = gameObject.layer;
+        ghostPlatformLayer = LayerMask.NameToLayer("GhostPlatform");
     }
 
     private void Start()
@@ -22,44 +33,60 @@ public class CharacterSwitch : MonoBehaviour
         {
             character.SetActive(false);
         }
+
         characterOptions[currentCharacterIndex].SetActive(true);
 
-        // שינוי 2: מעדכנים את הספות מיד כשהמשחק מתחיל
         UpdateGhostPlatforms();
     }
 
     private void SwitchCharacter(InputAction.CallbackContext context)
     {
-        characterOptions[currentCharacterIndex].SetActive(false); // Deactivate current character
-        currentCharacterIndex = (currentCharacterIndex + 1) % characterOptions.Count; // Cycle through character options
-        characterOptions[currentCharacterIndex].SetActive(true); // Activate new character
+        // Turn off current character
+        characterOptions[currentCharacterIndex].SetActive(false);
+
+        // Move to next character
+        currentCharacterIndex =
+            (currentCharacterIndex + 1) % characterOptions.Count;
+
+        // Turn on new character
+        characterOptions[currentCharacterIndex].SetActive(true);
+
         if (switchEffect != null)
         {
             switchEffect.Play();
         }
-        Debug.Log("Switched to character: " + characterOptions[currentCharacterIndex].name);
 
-        // שינוי 3: מעדכנים את הספות בכל פעם שהדמות מתחלפת
+        Debug.Log(
+            "Switched to character: " +
+            characterOptions[currentCharacterIndex].name
+        );
+
         UpdateGhostPlatforms();
     }
 
-    // שינוי 1: הפונקציה שמטפלת בהדלקה וכיבוי של ההתנגשות
-    private void UpdateGhostPlatforms()
+  private void UpdateGhostPlatforms()
+{
+    // Index 1 = Ghost
+    bool isGhost = (currentCharacterIndex == 1);
+
+    // Find every Collider2D in the scene
+    Collider2D[] allColliders = FindObjectsByType<Collider2D>(
+        FindObjectsSortMode.None
+    );
+
+    foreach (Collider2D col in allColliders)
     {
-        // בודקים אם הדמות הנוכחית היא הרוח (אינדקס 1)
-        bool isGhost = (currentCharacterIndex == 1);
-
-        // מוצאים את כל הספות לפי התגית
-        GameObject[] sofas = GameObject.FindGameObjectsWithTag("GhostPlatform");
-
-        foreach (GameObject sofa in sofas)
+        // Check if this object is on the GhostPlatform layer
+        if (col.gameObject.layer == LayerMask.NameToLayer("GhostPlatform"))
         {
-            Collider2D col = sofa.GetComponent<Collider2D>();
-            if (col != null)
-            {
-                // מדליקים את הקוליידר רק אם השחקן הוא רוח
-                col.enabled = isGhost;
-            }
+            // Collider is active ONLY when the character is Ghost
+            col.enabled = isGhost;
         }
+    }
+}
+
+    private void OnDestroy()
+    {
+        switchAction.performed -= SwitchCharacter;
     }
 }
