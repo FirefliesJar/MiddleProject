@@ -7,16 +7,17 @@ public class LockFall : MonoBehaviour
     public float shakeAmount = 0.08f;
     public float shakeSpeed = 30f;
 
-    // Reference to the portal
     public Portal portal;
 
     private Rigidbody2D rb;
+    private AudioSource audioSource;
     private Vector3 startPosition;
     private bool hasFallen = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 
         startPosition = transform.position;
 
@@ -52,10 +53,16 @@ public class LockFall : MonoBehaviour
             yield return null;
         }
 
-        // Return to center before falling
+        // Return to center
         transform.position = startPosition;
 
-        // Let physics take over
+        // Play lock sound
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
+        // Make the lock fall
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 3f;
 
