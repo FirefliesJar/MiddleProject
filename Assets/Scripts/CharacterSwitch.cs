@@ -6,14 +6,10 @@ public class CharacterSwitch : MonoBehaviour
 {
     private InputAction switchAction;
 
-    [SerializeField]
-    private List<GameObject> characterOptions = new List<GameObject>();
+    [SerializeField] private List<GameObject> characterOptions = new List<GameObject>();
+    public int currentCharacterIndex = 0;    // 0 = Doggo, 1 = Ghost, 2 = Pumpkin
 
-    // 0 = Doggo, 1 = Ghost, 2 = Pumpkin
-    public int currentCharacterIndex = 0;
-
-    [SerializeField]
-    private ParticleSystem switchEffect;
+    [SerializeField] private ParticleSystem switchEffect;
 
     private int playerLayer;
     private int ghostPlatformLayer;

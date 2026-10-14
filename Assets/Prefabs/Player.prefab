@@ -5105,6 +5105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CandyCollection
   characterSwitch: {fileID: 2561834872043294932}
+  lockFall: {fileID: 0}
   candyText: {fileID: 0}
 --- !u!50 &5786306202427213151
 Rigidbody2D:
@@ -5180,7 +5181,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 120
+  m_SortingOrder: 5
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!1 &6093296600295313694
