@@ -1,15 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class RestartButton : MonoBehaviour
 {
-    public void StartGame()
+    public void RestartGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GameScene 1");
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

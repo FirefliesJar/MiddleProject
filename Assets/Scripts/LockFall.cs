@@ -7,6 +7,9 @@ public class LockFall : MonoBehaviour
     public float shakeAmount = 0.08f;
     public float shakeSpeed = 30f;
 
+    // Reference to the portal
+    public Portal portal;
+
     private Rigidbody2D rb;
     private Vector3 startPosition;
     private bool hasFallen = false;
@@ -55,5 +58,11 @@ public class LockFall : MonoBehaviour
         // Let physics take over
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 3f;
+
+        // Unlock the portal
+        if (portal != null)
+        {
+            portal.UnlockPortal();
+        }
     }
 }
