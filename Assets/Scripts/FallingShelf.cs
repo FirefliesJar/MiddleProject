@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    [SerializeField] private CharacterSwitch characterSwitch; 
-    
+    [SerializeField] private CharacterSwitch characterSwitch;
+
     public float shakeTime = 0.5f;
     public float fallTime = 0.7f;
     public float respawnWait = 3f;
@@ -33,7 +33,9 @@ public class FallingPlatform : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!isFalling && collision.gameObject.CompareTag("Player") && characterSwitch.currentCharacterIndex != 1)
+        if (!isFalling &&
+            collision.gameObject.CompareTag("Player") &&
+            characterSwitch.currentCharacterIndex != 1)
         {
             // Only activate when player lands on top
             if (collision.contacts[0].normal.y < -0.5f)
@@ -65,34 +67,42 @@ public class FallingPlatform : MonoBehaviour
         transform.position = startPosition;
 
         // START FALLING
-        // Collider stays ON, so the player falls with the platform
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.freezeRotation = true;
 
-        // Let the platform fall for a moment
+        // Let the platform fall
         yield return new WaitForSeconds(fallTime);
 
-        // NOW make it disappear
-        spriteRenderer.enabled = false;
-        platformCollider.enabled = false;
+        // Move the platform away so Player gets a normal collision exit
+        transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y - 10f,
+            transform.position.z
+        );
 
-        // Stop the platform
+        // Wait for Unity's next physics update
+        yield return new WaitForFixedUpdate();
+
+        // NOW disable the platform
+        platformCollider.enabled = false;
+        spriteRenderer.enabled = false;
+
+        // Stop movement
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.bodyType = RigidbodyType2D.Kinematic;
 
-        // Wait before respawn
+        // Wait before respawning
         yield return new WaitForSeconds(respawnWait);
 
-        // Put it back
+        // Return platform to its original position
         transform.position = startPosition;
         transform.rotation = startRotation;
 
-        // Make it static again
         rb.bodyType = RigidbodyType2D.Static;
 
-        spriteRenderer.enabled = true;
         platformCollider.enabled = true;
+        spriteRenderer.enabled = true;
 
         isFalling = false;
         this.tag = "Ground"; // Reset tag to allow collisions again
