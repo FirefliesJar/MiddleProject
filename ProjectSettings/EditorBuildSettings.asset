@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: fe39706cfaeef42238653513c07e993c
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
-    guid: dac7d61fdb9974d5cb6aa14d4b287587
+    guid: c7f187a9866414743b3b848502c56f73
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 5f89717e2863a4102ab5a5ba611facc8

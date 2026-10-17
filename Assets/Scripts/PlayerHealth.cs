@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private ButtonsMenu buttonsMenu;
+    
     public int maxHealth = 3;
     public float blinkDuration = 1.5f;
     public float blinkInterval = 0.15f;
@@ -45,9 +47,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Time.timeScale = 1f;
 
-            SceneManager.LoadScene(
-                SceneManager.GetActiveScene().buildIndex
-            );
+            buttonsMenu.RestartScene();
         }
         else
         {
