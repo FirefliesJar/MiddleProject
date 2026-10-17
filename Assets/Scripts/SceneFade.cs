@@ -37,15 +37,14 @@ public class SceneFade : MonoBehaviour
     private IEnumerator FadeTo(float targetAlpha, float duration)
     {
         float startingAlpha = blackImage.color.a;
-        float timePassed = 0f;
+        float startTime = Time.unscaledTime;
 
-        while (timePassed < duration)
+        while (Time.unscaledTime - startTime < duration)
         {
-            timePassed += Time.unscaledDeltaTime;
-            float progress = timePassed / duration;
+            float timePassed = Time.unscaledTime - startTime;
+            float progress = Mathf.Clamp01(timePassed / duration);
 
             SetAlpha(Mathf.Lerp(startingAlpha, targetAlpha, progress));
-
             yield return null;
         }
 
