@@ -15,6 +15,15 @@ public class ButtonsMenu : MonoBehaviour
         sceneFade.LoadFadedScene(nextSceneIndex);
     }
 
+    public void RestartScene()
+    {
+        Time.timeScale = 1f;
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        sceneFade.LoadFadedScene(currentSceneIndex);
+    }
+
     public void QuitGame()
     {
         #if UNITY_EDITOR

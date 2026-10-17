@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class SceneFade : MonoBehaviour
 {
-    [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField] private float fadeToBlackDuration = 0.5f;
+    [SerializeField] private float fadeFromBlackDuration = 1.2f;
 
     private Image blackImage;
 
@@ -17,7 +18,8 @@ public class SceneFade : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return FadeTo(0f);
+        yield return null;
+        yield return FadeTo(0f, fadeFromBlackDuration);
     }
 
     public void LoadFadedScene(int sceneBuildIndex)
@@ -28,19 +30,19 @@ public class SceneFade : MonoBehaviour
 
     private IEnumerator FadeOutAndLoad(int sceneBuildIndex)
     {
-        yield return FadeTo(1f);
+        yield return FadeTo(1f, fadeToBlackDuration);
         SceneManager.LoadScene(sceneBuildIndex);
     }
 
-    private IEnumerator FadeTo(float targetAlpha)
+    private IEnumerator FadeTo(float targetAlpha, float duration)
     {
         float startingAlpha = blackImage.color.a;
         float timePassed = 0f;
 
-        while (timePassed < fadeDuration)
+        while (timePassed < duration)
         {
             timePassed += Time.unscaledDeltaTime;
-            float progress = timePassed / fadeDuration;
+            float progress = timePassed / duration;
 
             SetAlpha(Mathf.Lerp(startingAlpha, targetAlpha, progress));
 
