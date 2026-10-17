@@ -1,37 +1,30 @@
+
 using UnityEngine;
 
 public class WitchChase : MonoBehaviour
 {
     public Transform player;
     public float speed = 2f;
-    public GameObject loseScreen;
 
     private SpriteRenderer spriteRenderer;
+    private Vector3 startPosition;
 
-    void Start()
+    private void Start()
     {
-        // מוצא את ה-Sprite Renderer של המכשפה
         spriteRenderer = GetComponent<SpriteRenderer>();
+        startPosition = transform.position;
     }
 
-    void Update()
+    private void Update()
     {
         if (player == null)
             return;
 
-        // בודק איפה השחקן ביחס למכשפה
         if (player.position.x > transform.position.x)
-        {
-            // השחקן מימין - המכשפה מסתכלת ימינה
             spriteRenderer.flipX = true;
-        }
         else
-        {
-            // השחקן משמאל - המכשפה מסתכלת שמאלה
             spriteRenderer.flipX = false;
-        }
 
-        // מזיז את המכשפה לכיוון השחקן
         transform.position = Vector2.MoveTowards(
             transform.position,
             player.position,
@@ -41,19 +34,18 @@ public class WitchChase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // אם המכשפה נגעה בשחקן
         if (other.CompareTag("Player"))
         {
-            Debug.Log("YOU LOST!");
+            PlayerHealth health =
+                other.GetComponent<PlayerHealth>();
 
-            // מציג את מסך ההפסד
-            if (loseScreen != null)
+            if (health != null)
             {
-                loseScreen.SetActive(true);
-            }
+                health.TakeDamage();
 
-            // עוצר את המשחק
-            Time.timeScale = 0f;
+                // Return witch to starting position
+                transform.position = startPosition;
+            }
         }
     }
 }
