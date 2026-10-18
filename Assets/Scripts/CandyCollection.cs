@@ -7,6 +7,7 @@ public class CandyCollection : MonoBehaviour
     [SerializeField] private LockFall lockFall;
 
     private int candy = 0;
+    public int Candy => candy; // Public getter for candy count
 
     public TextMeshProUGUI candyText;
 

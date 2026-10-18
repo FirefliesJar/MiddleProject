@@ -34,10 +34,9 @@ public class WitchChase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && player.GetComponent<CandyCollection>().Candy < 3)
         {
-            PlayerHealth health =
-                other.GetComponent<PlayerHealth>();
+            PlayerHealth health = other.GetComponent<PlayerHealth>();
 
             if (health != null)
             {
