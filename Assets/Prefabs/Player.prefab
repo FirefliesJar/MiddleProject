@@ -5185,7 +5185,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!114 &3914503281298839180
@@ -5200,6 +5200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09d8b7b6e4e0403a85822e3f7769222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  buttonsMenu: {fileID: 0}
   maxHealth: 3
   blinkDuration: 1.5
   blinkInterval: 0.15
@@ -10364,7 +10365,7 @@ MonoBehaviour:
   m_Intensity: 0.23
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000013c60c28
+  m_ApplyToSortingLayers: 0000000013c60c288b1ae416efbef039
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -10373,7 +10374,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
+  m_ShadowsEnabled: 0
   m_ShadowIntensity: 0.75
   m_ShadowSoftness: 0.3
   m_ShadowSoftnessFalloffIntensity: 0.5

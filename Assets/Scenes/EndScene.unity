@@ -690,6 +690,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fallingleaf
       objectReference: {fileID: 0}
+    - target: {fileID: 2313437011700761547, guid: 1431d05319e2041edabfa4f06df3c395, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4426477841279634308, guid: 1431d05319e2041edabfa4f06df3c395, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.259375
@@ -949,6 +953,67 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1001 &1235299532
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 500928682360573421, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150662968170658084, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948988191020429675, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
+      propertyPath: m_Name
+      value: fallingleaf Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c41b935ca802f4bcc97fd9ec3d74236f, type: 3}
 --- !u!1 &1458452595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,5 +1391,6 @@ SceneRoots:
   - {fileID: 715793812}
   - {fileID: 1917420263}
   - {fileID: 909724177}
+  - {fileID: 1235299532}
   - {fileID: 1706372066}
   - {fileID: 1016936762}
