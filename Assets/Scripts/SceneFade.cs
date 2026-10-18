@@ -19,7 +19,7 @@ public class SceneFade : MonoBehaviour
     private IEnumerator Start()
     {
         yield return null;
-        yield return FadeTo(0f, fadeFromBlackDuration);
+        StartCoroutine(FadeTo(0f, fadeFromBlackDuration));
     }
 
     public void LoadFadedScene(int sceneBuildIndex)
