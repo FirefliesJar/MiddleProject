@@ -1,11 +1,13 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private ButtonsMenu buttonsMenu;
+    [SerializeField] private GameObject heartsCounter;
     
     public int maxHealth = 3;
     public float blinkDuration = 1.5f;
@@ -34,6 +36,8 @@ public class PlayerHealth : MonoBehaviour
         // Lose one life
         currentHealth--;
 
+        UpdateHealthUI();
+
         Debug.Log("Lives left: " + currentHealth);
 
         // Play hit sound
@@ -54,6 +58,13 @@ public class PlayerHealth : MonoBehaviour
             // Blink and become temporarily invincible
             StartCoroutine(Blink());
         }
+    }
+
+    void UpdateHealthUI()
+    {
+        heartsCounter.transform.GetChild(0).gameObject.SetActive(currentHealth >= 1);
+        heartsCounter.transform.GetChild(1).gameObject.SetActive(currentHealth >= 2);
+        heartsCounter.transform.GetChild(2).gameObject.SetActive(currentHealth >= 3);
     }
 
     private IEnumerator Blink()

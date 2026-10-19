@@ -9,6 +9,8 @@ public class WitchChase : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 startPosition;
 
+    public bool endChase = false;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,7 +36,7 @@ public class WitchChase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && player.GetComponent<CandyCollection>().Candy < 3)
+        if (other.CompareTag("Player") && !endChase)
         {
             PlayerHealth health = other.GetComponent<PlayerHealth>();
 

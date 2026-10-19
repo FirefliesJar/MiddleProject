@@ -5,6 +5,8 @@ public class Portal : MonoBehaviour
 {
     [SerializeField] private ButtonsMenu buttonsMenu;
     [SerializeField] private GameObject portalPlatform;
+    [SerializeField] private GameObject witch;
+
     private bool portalUnlocked = false;
 
     void Start()
@@ -16,6 +18,7 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player") && portalUnlocked)
         {
+            witch.GetComponent<WitchChase>().endChase = true;
             buttonsMenu.NextScene();
         }
     }
